@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: order-service2
+    ports:
+      - "8300:8300"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/orderservice
+      SPRING_DATASOURCE_USERNAME: user99
+      SPRING_JPA_HIBERNATE_DDL_AUTO: none
+      SERVER_PORT: 8300
+      EUREKA: http://host.docker.internal:8761/eureka
